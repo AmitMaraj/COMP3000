@@ -1,7 +1,3 @@
-// for further info 
-// http://coj.uci.cu/24h/problem.xhtml?abb=1480
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -263,6 +259,7 @@ void printMST(Graph G){
 	fclose(out);
 	
 }// end printMST
+
 
 
 
