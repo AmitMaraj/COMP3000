@@ -17,6 +17,7 @@ int main() {
 			count = 0;
 			for (j=0;j<26;j++){
 				fscanf(in,"%d",&k);
+				// removing the zeros from the input data
 				if (k != 0){
 					num[count] = k;
 					count++;
