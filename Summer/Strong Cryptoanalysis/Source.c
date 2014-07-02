@@ -1,39 +1,34 @@
-// for more info
-// http://coj.uci.cu/24h/problem.xhtml?abb=2364
-
 #include <stdio.h>
-#include <stdlib.h>
-
-
 
 // Function Prototypes
 void selectionSorting (int arr[], int size);
-
 
 int main() {
 	
 	FILE*in = fopen("input.txt","r");
 	FILE*out = fopen("output.txt","w");
 	
-	int amt,num[26];
+	int amt,num[26],count;
 	fscanf(in,"%d",&amt);
 	
 	int i,j,k;
 	
 		for (i=0;i<amt;i++){
-			for (j=0;j<26;j++)
-				fscanf(in,"%d",&num[j]);
-				
-			selectionSorting(num,26);
-			
+			count = 0;
 			for (j=0;j<26;j++){
-				for (k=0;k<num[j];k++){
-					fprintf(out,"%c",122-j);
-				}
+				fscanf(in,"%d",&k);
+				if (k != 0){
+					num[count] = k;
+					count++;
+				}	
 			}
-			fprintf(out,"\n");
-				
+
+			selectionSorting(num,count);
 			
+			for (j=0;j<count;j++)
+				for (k=0;k<num[j];k++)
+					fprintf(out,"%c",122-j);
+			fprintf(out,"\n");	
 		}
 	
 
@@ -58,5 +53,9 @@ void selectionSorting (int arr[], int size){
 		arr[i] = temp;
 	}
 }
+
+
+
+
 
 
