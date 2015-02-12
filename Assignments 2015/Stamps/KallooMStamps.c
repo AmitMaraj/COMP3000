@@ -50,10 +50,9 @@ void solve(FILE*out,int Coins[], int size, int AmtCoins,int AmtTickets){
 	storage = (int*)malloc((SIZE) * sizeof(int*));
 	storage[0] = 0;
 
-	for (i = 1; i < SIZE; i++)
-			storage[i] = INFINITY; // place a very large value 
 	printf("Processing...\n");
 	for(i=1;i<=size;i++){
+		storage[i] = INFINITY;  // place a very large value as first value
 			for(j=1;j<=AmtCoins;j++){
 				// checks for if the coin is less than of equal to index and if the coin subtract 
 				// the index plus one more coin is a better value than if current best
