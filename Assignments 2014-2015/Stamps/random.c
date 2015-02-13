@@ -3,11 +3,12 @@
 int main()
 {
 	int x,y;
-	printf("enter # of Tickets :\n");
-	scanf("%d",&y);
-	printf("enter # of Coins  :\n");
-	scanf("%d",&x);
+	// printf("enter # of Tickets :\n");
+	// scanf("%d",&y);
+	// printf("enter # of Coins  :\n");
+	// scanf("%d",&x);
 	srand(time(0));
+	x = y = 500;
 
 
 	FILE*out = fopen("input.txt","w");
@@ -16,7 +17,7 @@ int main()
 	int i,j;
 	
 		for (j = 1; j <= x; j++)
-			fprintf(out,"%d ",j);  //rand()%100
+			fprintf(out,"%d ",rand()%10000);  //rand()%100
 		
 
 
