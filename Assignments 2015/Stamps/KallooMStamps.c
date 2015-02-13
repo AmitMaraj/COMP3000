@@ -2,11 +2,10 @@
 #include <stdlib.h>
 
 #define INFINITY 9999999
-#define SIZE 5000005
+#define SIZE 5000001
 
 // Prototypes
-int min(int a, int b);
-void solve(FILE*out,int Coins[], int size, int AmtCoins,int AmtTickets);
+void solve(FILE*out,int Coins[], int AmtCoins,int AmtTickets);
 
 
 int main()
@@ -25,10 +24,8 @@ int main()
 
 	printf("\nCOMP3000 Assignment 2\n\nStudent # : 812000767\n\n\n\n********** Stamps ************* \n\n\n");
 
-	solve(out,Coins,SIZE,AmtCoins,AmtTickets);
-	printf("answer saved to output.txt ...\n\n\n");
+	solve(out,Coins,AmtCoins,AmtTickets);
 		
-
 	fclose(in);
 	fclose(out);
 	system("PAUSE");
@@ -36,12 +33,9 @@ int main()
 }
 
 
-int min(int a, int b){
-	if (a>b) return b;
-	return a;
-}
-
-void solve(FILE*out,int Coins[], int size, int AmtCoins,int AmtTickets){
+// function used for finding the last number that can be made
+// with the given set of coins
+void solve(FILE*out,int Coins[], int AmtCoins,int AmtTickets){
 	int i,j;
 	int* storage;
 
@@ -51,7 +45,7 @@ void solve(FILE*out,int Coins[], int size, int AmtCoins,int AmtTickets){
 	storage[0] = 0;
 
 	printf("Processing...\n");
-	for(i=1;i<=size;i++){
+	for(i=1;i<=SIZE;i++){
 		storage[i] = INFINITY;  // place a very large value as first value
 			for(j=1;j<=AmtCoins;j++){
 				// checks for if the coin is less than of equal to index and if the coin subtract 
@@ -63,6 +57,7 @@ void solve(FILE*out,int Coins[], int size, int AmtCoins,int AmtTickets){
 			}
 			// stop when there is greater amount of tickets needed
 			if (storage[i] > AmtTickets){
+				printf("answer saved to output.txt ...\n\n\n");
 				fprintf(out,"The value of M is %d\n",i-1);
 				break;
 			}
